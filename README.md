@@ -1,12 +1,26 @@
+## Customize this file after creating the new REPO and remove this lines.
+What to adjust:  
+* Add the your project or repo name direct under the logo.
+* Add a short and long desciption.
+* Add links for your final repo to report a bug or request a feature.
+* Add list of used technologies.
+* If you have, add a roadmap or remove this section.
+* Fill up the section for set up and documentation.
+ * Start in this file only with documentation and link to the docs folder.
+* Add project shields. Use [shields.io](https://shields.io/)
+
+## ------- end to remove -------
 <div id="top"></div>
 
+<!-- PROJECT SHIELDS -->
 
+<!-- END OF PROJECT SHIELDS -->
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/it-at-m/digiwf-s3-integration">
-    <img src="static/images/itm_logo.png" alt="Logo" height="200">
+  <a href="#">
+    <img src="/images/itm_logo.png" alt="Logo" height="200">
   </a>
 
 <h3 align="center">DigiWF <i>repo or project name</i></h3>
@@ -31,7 +45,7 @@
 
 The documentation project is built with technologies we use in our projects:
 
-* ...
+* *write here the list of used technologies*
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -45,7 +59,15 @@ See the [open issues](#) for a full list of proposed features (and known issues)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Set up
+*how can i start and fly this project*
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Documentation
+*what insights do you have to tell*
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -61,6 +83,8 @@ Don't forget to give the project a star! Thanks again!
 4. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 5. Push to the Branch (`git push origin feature/AmazingFeature`)
 6. Open a Pull Request
+
+More about this in the [CODE_OF_CONDUCT](/CODE_OF_CONDUCT.md) file.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
