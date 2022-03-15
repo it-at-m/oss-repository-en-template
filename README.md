@@ -20,7 +20,7 @@ What to adjust:
 <br />
 <div align="center">
   <a href="#">
-    <img src="/images/itm_logo.png" alt="Logo" height="200">
+    <img src="/images/logo.png" alt="Logo" height="200">
   </a>
 
 <h3 align="center">DigiWF <i>repo or project name</i></h3>
