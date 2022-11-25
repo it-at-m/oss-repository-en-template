@@ -101,9 +101,8 @@ Distributed under the MIT License. See `LICENSE` file for more information.
 <!-- CONTACT -->
 ## Contact
 
-it@m - opensource@muenchendigital.io
+it@m - opensource@muenchen.de
 
-[join our slack channel](https://join.slack.com/t/digiwf/shared_invite/zt-14jxazj1j-jq0WNtXp7S7HAwJA7tKgpw)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
