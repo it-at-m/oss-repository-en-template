@@ -10,14 +10,7 @@ What to adjust:
 * Add project shields. Use [shields.io](https://shields.io/)
 
 ## ------- end to remove -------
-<div id="top"></div>
 
-<!-- PROJECT SHIELDS -->
-
-<!-- END OF PROJECT SHIELDS -->
-
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <a href="#">
     <img src="/images/logo.png" alt="Logo" height="200">
@@ -33,12 +26,12 @@ What to adjust:
   </p>
 </div>
 
-<!-- ABOUT THE PROJECT -->
+
+# repo or project name
+
 ## About The Project
 
 *Add a description from your project here.*
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 ### Built With
@@ -47,9 +40,6 @@ The documentation project is built with technologies we use in our projects:
 
 * *write here the list of used technologies*
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ROADMAP -->
 ## Roadmap
 
 *if you have a ROADMAP for your project add this here*
@@ -57,19 +47,13 @@ The documentation project is built with technologies we use in our projects:
 
 See the [open issues](#) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Set up
 *how can i start and fly this project*
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ## Documentation
 *what insights do you have to tell*
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -89,23 +73,11 @@ More about this in the [CODE_OF_CONDUCT](/CODE_OF_CONDUCT.md) file.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-<!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` file for more information.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- CONTACT -->
 ## Contact
 
 it@m - opensource@muenchen.de
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
