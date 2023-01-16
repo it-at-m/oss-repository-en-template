@@ -75,7 +75,7 @@ More about this in the [CODE_OF_CONDUCT](/CODE_OF_CONDUCT.md) file.
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` file for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) file for more information.
 
 
 ## Contact
