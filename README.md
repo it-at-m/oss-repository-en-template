@@ -10,22 +10,7 @@ What to adjust:
 * Add project shields. Use [shields.io](https://shields.io/)
 
 ## ------- end to remove -------
-
-<div align="center">
-  <a href="#">
-    <img src="/images/logo.png" alt="Logo" height="200">
-  </a>
-
-<h3 align="center">DigiWF <i>repo or project name</i></h3>
-
-  <p align="center">
-    <i>Add a here a short description</i>
-    <br /><a href="#">Report Bug</a>
-    ·
-    <a href="#">Request Feature</a>
-  </p>
-</div>
-
+<!-- add Project Logo, if existing -->
 
 # repo or project name
 
