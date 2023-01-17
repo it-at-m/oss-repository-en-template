@@ -65,4 +65,4 @@ Distributed under the MIT License. See [LICENSE](LICENSE) file for more informat
 
 ## Contact
 
-it@m - opensource@muenchen.de
+it@M - opensource@muenchen.de
