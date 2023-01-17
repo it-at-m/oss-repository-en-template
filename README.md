@@ -14,8 +14,6 @@ What to adjust:
 
 # repo or project name
 
-## About The Project
-
 *Add a description from your project here.*
 
 
