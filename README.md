@@ -53,8 +53,6 @@ Don't forget to give the project a star! Thanks again!
 
 More about this in the [CODE_OF_CONDUCT](/CODE_OF_CONDUCT.md) file.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 ## License
 
