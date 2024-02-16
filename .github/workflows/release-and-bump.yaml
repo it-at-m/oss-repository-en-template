@@ -10,11 +10,18 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Get Project Version
-        id: get-version
+        id: set-release-version
         run: |
           current_version=$(mvn help:evaluate -f pom.xml -Dexpression=project.version -q -DforceStdout)
+          echo "Current version: $current_version"
           new_version=$(echo $current_version | sed 's/-SNAPSHOT//')
           echo "New version: $new_version"
+          mvn -B versions:set -f pom.xml -DnewVersion=$new_version
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add pom.xml
+          git commit -m "Bump version to $new_version"
+          git push
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
@@ -23,8 +30,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.get-version.outputs.new_version }}
-          release_name: ${{ steps.get-version.outputs.new_version }}
+          tag_name: ${{ steps.set-release-version.outputs.new_version }}
+          release_name: ${{ steps.set-release-version.outputs.new_version }}
           draft: false
           prerelease: false
 
@@ -37,7 +44,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set Maven Project Version
-        id: set-version
+        id: bump-snapshot-version
         run: |
           current_version=$(mvn help:evaluate -f pom.xml -Dexpression=project.version -q -DforceStdout)
           echo "Current version: $current_version"
