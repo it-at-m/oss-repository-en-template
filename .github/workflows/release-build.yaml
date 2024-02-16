@@ -1,4 +1,4 @@
-name: Build GitHub release
+name: Build GitHub release and bump SNAPSHOT
 
 on: [workflow_dispatch] # enable manual triggering of this action
 
