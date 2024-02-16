@@ -1,6 +1,13 @@
-name: build and test
+name: Compliance check and build test
 
-on: [push]
+on: # defining on which triggers this action should run
+  push:
+    branches:
+      # define on push of which branches should this action be run
+    paths:
+      # define the concrete paths on which a change triggers this action, e.g. backend/**
+  pull_request: # trigger this action also on Pull Requests
+    types: [ opened, reopened ]
 
 jobs:
   compliance:
@@ -17,3 +24,19 @@ jobs:
           policy-path: default.yaml
           token: ${{ secrets.GITHUB_TOKEN }}
           argvs: "--disable-dependabot --disable-secret-scanning --disable-code-scanning --display"
+
+  build-maven:
+    needs: compliance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: "maven"
+
+      - name: Build with Maven
+        run: mvn --update-snapshots -f pom.xml verify
