@@ -36,7 +36,7 @@ jobs:
           prerelease: false
 
   increase-snapshot:
-    needs: release
+    needs: github-release
     name: Increase patch-number of the SNAPSHOT-Version
     runs-on: ubuntu-latest
     steps:
