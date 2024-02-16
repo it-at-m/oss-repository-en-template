@@ -53,6 +53,7 @@ jobs:
           mvn -B versions:set -DnewVersion=$new_version -f pom.xml
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
+          git update
           git add pom.xml
           git commit -m "Bump version to $new_version"
           git push
