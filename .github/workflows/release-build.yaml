@@ -1,0 +1,51 @@
+name: Build GitHub release
+
+on: [workflow_dispatch] # enable manual triggering of this action
+
+jobs:
+  github-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get Project Version
+        id: get-version
+        run: |
+          current_version=$(mvn help:evaluate -f pom.xml -Dexpression=project.version -q -DforceStdout)
+          new_version=$(echo $current_version | sed 's/-SNAPSHOT//')
+          echo "New version: $new_version"
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get-version.outputs.new_version }}
+          release_name: ${{ steps.get-version.outputs.new_version }}
+          draft: false
+          prerelease: false
+
+  increase-snapshot:
+    needs: release
+    name: Increase patch-number of the SNAPSHOT-Version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set Maven Project Version
+        id: set-version
+        run: |
+          current_version=$(mvn help:evaluate -f pom.xml -Dexpression=project.version -q -DforceStdout)
+          echo "Current version: $current_version"
+          new_version=$(echo $current_version | awk -F. -v OFS=. '{$3=$3+1; print $0"-SNAPSHOT"}')
+          echo "New version: $new_version"
+          mvn -B versions:set -DnewVersion=$new_version -f pom.xml
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add pom.xml
+          git commit -m "Bump version to $new_version"
+          git push
