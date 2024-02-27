@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Get Project Version
         id: set-release-version
@@ -37,11 +37,10 @@ jobs:
 
   increase-snapshot:
     needs: github-release
-    name: Increase patch-number of the SNAPSHOT-Version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set Maven Project Version
         id: bump-snapshot-version
@@ -53,7 +52,6 @@ jobs:
           mvn -B versions:set -DnewVersion=$new_version -f pom.xml
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
-          git update
           git add pom.xml
           git commit -m "Bump version to $new_version"
           git push
