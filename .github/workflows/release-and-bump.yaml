@@ -47,14 +47,14 @@ jobs:
       - name: Set Maven Project Version
         id: bump-snapshot-version
         run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git pull
           current_version=$(mvn help:evaluate -f pom.xml -Dexpression=project.version -q -DforceStdout)
           echo "Current version: $current_version"
           new_version=$(echo $current_version | awk -F. -v OFS=. '{$3=$3+1; print $0"-SNAPSHOT"}')
           echo "New version: $new_version"
           mvn -B versions:set -DnewVersion=$new_version -f pom.xml
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git pull
           git add pom.xml
           git commit -m "Bump version to $new_version"
           git push
