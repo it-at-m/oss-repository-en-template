@@ -1,0 +1,58 @@
+name: Build GitHub release and bump SNAPSHOT
+
+on: [workflow_dispatch] # enable manual triggering of this action
+
+jobs:
+  github-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Project Version
+        id: set-release-version
+        run: |
+          current_version=$(mvn help:evaluate -f pom.xml -Dexpression=project.version -q -DforceStdout)
+          echo "Current version: $current_version"
+          new_version=$(echo $current_version | sed 's/-SNAPSHOT//')
+          echo "New version: $new_version"
+          mvn -B versions:set -f pom.xml -DnewVersion=$new_version
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add pom.xml
+          git commit -m "Bump version to $new_version"
+          git push
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.set-release-version.outputs.new_version }}
+          name: ${{ steps.set-release-version.outputs.new_version }}
+          draft: false
+          prerelease: false
+
+  increase-snapshot:
+    needs: github-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set Maven Project Version
+        id: bump-snapshot-version
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git pull
+          current_version=$(mvn help:evaluate -f pom.xml -Dexpression=project.version -q -DforceStdout)
+          echo "Current version: $current_version"
+          new_version=$(echo $current_version | awk -F. -v OFS=. '{$3=$3+1; print $0"-SNAPSHOT"}')
+          echo "New version: $new_version"
+          mvn -B versions:set -DnewVersion=$new_version -f pom.xml
+          git add pom.xml
+          git commit -m "Bump version to $new_version"
+          git push
