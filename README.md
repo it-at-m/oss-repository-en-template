@@ -7,12 +7,15 @@ What to adjust:
 * If you have, add a roadmap or remove this section.
 * Fill up the section for set up and documentation.
  * Start in this file only with documentation and link to the docs folder.
-* Add project shields. Use [shields.io](https://shields.io/)
+* Add more project shields. Use [shields.io](https://shields.io/) with style `for-the-badge`.
 
 ## ------- end to remove -------
 <!-- add Project Logo, if existing -->
 
 # repo or project name
+
+[![Made with love by it@M][made-with-love-shield]][itm-opensource]
+<!-- feel free to add more shields, style 'for-the-badge' -> see https://shields.io/badges -->
 
 *Add a description from your project here.*
 
@@ -72,3 +75,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE) file for more informat
 ## Contact
 
 it@M - opensource@muenchen.de
+
+<!-- project shields / links -->
+[made-with-love-shield]: https://img.shields.io/badge/made%20with%20%E2%9D%A4%20by-it%40M-yellow?style=for-the-badge
+[itm-opensource]: https://opensource.muenchen.de/
