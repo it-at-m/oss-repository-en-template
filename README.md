@@ -35,7 +35,7 @@ See the [open issues](#) for a full list of proposed features (and known issues)
 
 
 ## Set up
-*how can i start and fly this project*
+*how can i start and fly this project: make, helm ect*
 
 ## Documentation
 *what insights do you have to tell*
